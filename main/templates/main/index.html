@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+ {% block content %}
+     <h1>Main page</h1>
+    <p>Extra text</p>
+     {% if task %}
+        {% for el in task %}
+            <div class="alert alert-warning mt-2">
+                <h3>{{el.title}}</h3>
+                <p>{{el.task}}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Empty</p>
+    {% endif %}
+{% endblock %}
