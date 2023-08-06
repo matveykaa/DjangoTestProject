@@ -16,7 +16,7 @@ def create(request):
         form = TaskForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('main/index.html')
+            return redirect('/')
         else:
             error = 'Error'
     form = TaskForm()
@@ -53,7 +53,7 @@ def find(request):
         if form.is_valid():
             title_to_update = form.cleaned_data['title']
             if title_to_update:
-                return render(request,'main/update.html', title_to_update)
+                return redirect('/update', title_to_update)
             else:
                 return HttpResponse("<p>Not found</p>")
         else:
