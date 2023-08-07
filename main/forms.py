@@ -15,12 +15,3 @@ class TaskForm(ModelForm):
                 'placeholder': "Enter description"
             })
         }
-class TaskForDelete(ModelForm):
-    class Meta:
-        model = Task
-        fields = ["title"]
-        widgets = {
-            'title': TextInput(attrs={
-                'class': 'form-control',
-            'placeholder': "Enter title"
-        })}

@@ -5,16 +5,11 @@
 {% block content %}
    <form method="post">
     {% csrf_token %}
-{#    {{ form.title }}#}
-{#    {{ form.task }}#}
        <fieldset class="form-group">
-
-                <legend class="heading">Изменение информации</legend>
-                {{ form.title}}
-                {{ form.task}}
-
+                <legend class="heading">Change Info</legend>
+                {{ form.title}}<br>
+                {{ form.task}}<br>
             </fieldset>
-
-    <button type="submit">Update</button>
+    <button type="submit" class="btn btn-success">Update</button>
 </form>
 {% endblock %}
