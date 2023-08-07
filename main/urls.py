@@ -7,6 +7,6 @@ urlpatterns = [
     path('create', views.create),
     path('delete', views.delete),
     path('find', views.find),
-    path('update', views.update),
+    path('update/<int:task_id>/', views.update, name='update'),
 
 ]

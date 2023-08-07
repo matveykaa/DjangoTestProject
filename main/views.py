@@ -67,18 +67,20 @@ def find(request):
 
     return render(request, 'main/find.html', context)
 
-def update(request, title_to_update):
-    task = get_object_or_404(Task, title=title_to_update)
-    error = ''
+def update(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+
     if request.method == 'POST':
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('/')  # Изменено на 'index'
+    else:
+        form = TaskForm(instance=task)
 
-    form = TaskForm(instance=task)
     context = {
         'form': form,
-        'task': task
+        'task': task  # Передаем одну задачу, а не список
     }
-    return render(request, 'main/index.html', context)
+
+    return render(request, 'main/update.html', context)
