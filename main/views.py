@@ -74,13 +74,13 @@ def update(request, task_id):
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
             form.save()
-            return redirect('/')  # Изменено на 'index'
+            return redirect('/')
     else:
         form = TaskForm(instance=task)
 
     context = {
         'form': form,
-        'task': task  # Передаем одну задачу, а не список
+        'task': task
     }
 
     return render(request, 'main/update.html', context)
